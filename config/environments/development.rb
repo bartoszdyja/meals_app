@@ -1,4 +1,6 @@
 Rails.application.configure do
+  ENV['GITHUB_KEY'] = "a2164fa1273c01d494a2";
+  ENV['GITHUB_SECRET'] = "a793d29180bda7743891269204ce067a850588dd";
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
