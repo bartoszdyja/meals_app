@@ -1,13 +1,13 @@
-angular.module('orderApp', ['ngResource', 'ui.router'])
+angular.module('orderApp', ['ngResource', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
       .state('home', {
-        url: '/',
+        url: '/orders',
         templateUrl: 'templates/home.html'
       });
 
-    $urlRouterProvider.otherwise('/sadfsdf');
+    $urlRouterProvider.otherwise('/orders');
 })
 
 .controller('MainCtrl', [
