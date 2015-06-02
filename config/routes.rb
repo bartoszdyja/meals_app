@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "users#new"
   get "/auth/:provider/callback" => "sessions#create"
+  get "angular_app" => 'application#index', :as => :angular
   get "/signout" => "sessions#destroy", :as => :signout 
 
   # The priority is based upon order of creation: first created -> highest priority.
