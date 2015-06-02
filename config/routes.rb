@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api, defaults: {format: :json} do
+  get 'orders/index'
+  end
+
   root to: "users#new"
   get "/auth/:provider/callback" => "sessions#create"
   get "angular_app" => 'application#index', :as => :angular
