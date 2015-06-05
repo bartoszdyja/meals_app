@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603124121) do
+ActiveRecord::Schema.define(version: 20150605192512) do
 
   create_table "orders", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
     t.boolean  "finalized"
     t.boolean  "ordered"
     t.boolean  "delivered"
