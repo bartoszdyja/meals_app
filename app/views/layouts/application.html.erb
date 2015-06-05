@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MealsOrderingApp</title>
+  <title>Meals Ordering App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="orderApp">
-<%= render "layouts/nav" %>
 <%= yield %>
 </body>
 </html>

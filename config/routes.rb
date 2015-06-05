@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
-  get 'orders/index'
+  resources :orders
   end
 
-  root to: "users#new"
-  get "/auth/:provider/callback" => "sessions#create"
-  get "angular_app" => 'application#index', :as => :angular
-  get "/signout" => "sessions#destroy", :as => :signout 
+  root to: "application#index"
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  post 'auth/facebook', to: 'auth#facebook'                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  get "angular_app" => 'application#index', :as => :angular 
+
+  # The priority is based upon order of creation: first created -> highest priority.                                                                                                      
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

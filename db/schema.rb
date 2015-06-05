@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602112013) do
+ActiveRecord::Schema.define(version: 20150603124121) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "name"
@@ -27,8 +27,13 @@ ActiveRecord::Schema.define(version: 20150602112013) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "facebook"
+    t.string   "display_name"
+    t.string   "email"
+    t.string   "password_digest", default: "", null: false
+    t.string   "github"
   end
 
 end

@@ -35,6 +35,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'omniauth-github', '~> 1.1.2'
 gem "therubyracer"
 gem "less-rails"
+gem 'active_model_serializers', '~> 0.9.3'
+gem 'httpclient', '~> 2.6.0.1'
+gem 'bcrypt', '~> 3.1.10'
+gem 'jwt', '~> 1.5.0'
 
 
 group :development, :test do

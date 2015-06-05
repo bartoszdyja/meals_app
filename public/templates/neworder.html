@@ -1,6 +1,9 @@
-<div ng-if="isAuthenticated()" class="col-md-8 col-md-offset-2">
-  <h1>List orders</h1>
+<h1>Add new order</h1>
 
+<span us-spinner="{radius:30, width:8, length: 16}"></span>
+<button class="btn btn-primary" 	ng-click="addOrder()" >
+  Add new order
+</button>
 
 <table class="table">
 	<tr>
@@ -12,5 +15,3 @@
             <td>{{order.name}}</td>
         </tr>
 </table>
-</div>
-	

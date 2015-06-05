@@ -18,5 +18,7 @@
 //= require angular-ui-router
 //= require angular-strap
 //= require angular-animate
+//= require angular-messages
 //= require bootstrap
+//= require satellizer
 //= require_tree .
