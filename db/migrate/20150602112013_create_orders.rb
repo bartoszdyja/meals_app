@@ -3,9 +3,9 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.string :name
       t.float :price
-      t.boolean :finalized
-      t.boolean :ordered
-      t.boolean :delivered
+      t.boolean :finalized, default: false
+      t.boolean :ordered, default: false
+      t.boolean :delivered, default: false
 
       t.timestamps null: false
     end

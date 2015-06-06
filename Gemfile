@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'omniauth-github', '~> 1.1.2'
+
 gem "therubyracer"
 gem "less-rails"
 gem 'active_model_serializers', '~> 0.9.3'

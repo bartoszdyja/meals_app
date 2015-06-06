@@ -1,4 +1,9 @@
-class UsersController < ApplicationController
-  def new
-  end
+	class UsersController < ApplicationController
+	before_filter :set_current_user
+	  def new
+	  end
+
+	  def show
+	  	render json: current_user
+	  end
 end

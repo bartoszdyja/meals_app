@@ -1,7 +1,28 @@
-angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer', 'ngLoadingSpinner'])
+angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer'])
+
+  .factory("User", function($resource) {
+    return $resource("/profile", {},
+      {
+      
+      'show':    { method: 'GET', isArray: false },
+      'create':  { method: 'POST'}
+      }
+    );
+  })
 
   .factory("Order", function($resource) {
     return $resource("/api/orders/:id", { id: "@id" },
+      {
+      
+      'index':   { method: 'GET', isArray: true },
+      'show':    { method: 'GET', isArray: false },
+      'create':  { method: 'POST'}
+      }
+    );
+  })
+
+  .factory("Item", function($resource) {
+    return $resource("/api/items/:id", { id: "@id" },
       {
       
       'index':   { method: 'GET', isArray: true },

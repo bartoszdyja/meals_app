@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
   resources :orders
+  resources :items
   end
 
   root to: "application#index"
 
+  get 'profile', to: 'users#show'
+  get 'user', to: 'application#set_current_user'
   post 'auth/facebook', to: 'auth#facebook'                                                                                                                                                                                                                                                                                                                                                                                                                                       
   get "angular_app" => 'application#index', :as => :angular 
 

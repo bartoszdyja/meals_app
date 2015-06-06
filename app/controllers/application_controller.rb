@@ -6,17 +6,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
-  helper_method :current_user
- 
-  private
- 
+  #private
+
   def authenticate_user!
-    unauthorized! unless @current_user
+    unauthorized! unless current_user
   end
   
   def unauthorized!
     head :unauthorized
-  end  
+  end
+
+  def current_user
+    @current_user
+  end
 
   def set_current_user
     token = request.headers['Authorization'].to_s.split(' ').last
@@ -25,5 +27,7 @@ class ApplicationController < ActionController::Base
     payload = Token.new(token)
 
     @current_user = User.find(payload.user_id) if payload.valid?
+
+    
   end
 end

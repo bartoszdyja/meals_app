@@ -6,7 +6,9 @@
     <li><a href="/#/login">Login</a></li>
   </ul>
   <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
+    <li>{{user.displayName}}</li>
     <li><a href="/#/logout">Logout</a></li>
+    
   </ul>
 </div>
 

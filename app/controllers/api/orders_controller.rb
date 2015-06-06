@@ -1,6 +1,6 @@
   class Api::OrdersController < ApplicationController
 
-  #before_filter :set_current_user, :authenticate_user!
+  before_filter :set_current_user, :authenticate_user!
   
   def create
   	@order = Order.new
@@ -24,6 +24,6 @@
 
   private
   def order_params
-  	params.require(:order).permit(:name, :price)
+  	params.require(:order).permit(:finalized, :ordered, :delivered)
   end
 end

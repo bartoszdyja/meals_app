@@ -1,5 +1,7 @@
 class AuthController < ApplicationController
 
+  
+
   def facebook
     @oauth = OAuth.const_get(action_name.capitalize).new params
     
@@ -9,9 +11,4 @@ class AuthController < ApplicationController
   end
 
   
-  private
-
-  def auth_params
-    params.require(:auth).permit(:email, :password, :displayName)
-  end
 end

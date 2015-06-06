@@ -2,4 +2,29 @@
 
 {{or.name}}
 {{or.created_at}}
-{{or2.name}}
+<p>asdfas   {{or.finalized}}</p>
+
+<div>
+	<form class="tab-pane active form-horizontal col-md-offset-2" novalidate name="itemForm" class="simple-form"  ng-submit="addItem()">
+	    <div class="form-group" ng-class="{'has-error' : submitted && itemForm.name.$invalid}">
+    		<label class="control-label col-md-3">Name <span class="required">* </span> </label>
+    			<div class="col-md-4">
+        			<input type="text" name="name" class="form-control" ng-model="newItem.name" required placeholder="Food's name"/>
+    			</div>
+    		<p ng-show=" submitted && itemForm.name.$invalid" class="help-block">First name is required.</p>
+		</div>
+	
+
+		<div class="form-group" ng-class="{'has-error' : submitted && itemForm.price.$invalid}">
+    		<label class="control-label col-md-3">Price <span class="required">* </span> </label>
+    			<div class="col-md-4">
+        			<input type="number" name="price" class="form-control" ng-model="newItem.price" required placeholder="Price"/>
+    			</div>
+    		<p ng-show=" submitted && itemForm.price.$error.required" class="help-block">Price cannot be blank.</p>
+    		<p ng-show=" submitted && itemForm.price.$invalid && !itemForm.price.$error.required" class="help-block">Price is invalid.</p>
+		</div>
+	    <div class="col-md-offset-3">
+        <button type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button>
+    	</div>
+  	</form>
+</div>
