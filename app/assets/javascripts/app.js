@@ -37,7 +37,7 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
     $('meta[name=csrf-token]').attr('content');
   })
 
-  .config(function($stateProvider, $urlRouterProvider, $authProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
     $stateProvider
       .state('home', {
         url: '/',
@@ -89,9 +89,13 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
       });
 
     $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode({
+      enabled: true
+    });
 
     $authProvider.facebook({
       clientId: '792920127488625'
     });
 
   });
+

@@ -6,9 +6,12 @@
     <li><a href="/#/login">Login</a></li>
   </ul>
   <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
-    <li><a href="/#/logout">Logout {{user.displayName}}</a></li>
+    <li>{{user.displayName}}</li>
+    <li><a href="/#/logout">Logout</a></li>
     
   </ul>
 </div>
 
-<div ui-view class='container'></div>	
+<div ui-view class='container'>
+	
+</div>	
