@@ -1,23 +1,38 @@
 <h1>Order No: {{order.id}}</h1>
+<div class="well col-md-3">
+<span ng-hide="order.finalized" class="label label-danger">Not finalized</span>
+<span ng-show="order.finalized" class="label label-success">Finalized</span>
+<span ng-show="order.ordered" class="label label-success">Ordered</span>
+<span ng-hide="order.ordered" class="label label-danger">Not ordered</span>
+<span ng-show="order.delivered" class="label label-success">Delivered</span>
+<span ng-hide="order.delivered" class="label label-danger">Not delivered</span>
+</div>
+
+<div class="col-md-4" ng-hide="!isAuthenticated()">
+<button ng-hide="order.finalized" type="submit" class="btn btn-primary btn-lg" ng-click="finalizeOrder()">Finalize</button>
+<button ng-hide="order.ordered || !order.finalized" type="submit" class="btn btn-primary btn-lg" ng-click="orderOrder()">Order</button>
+<button ng-hide="order.delivered || !order.finalized || !order.ordered" type="submit" class="btn btn-primary btn-lg" ng-click="deliverOrder()">Deliver</button>
+</div>
 
 <table class="table">
     <caption>Items in this order</caption>
         <tr>
             <th>Name</th>
+            <th>Price</th>
             <th>Added by</th>
             
                 
         </tr>
         <tr ng-repeat="item in order.items">
             <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
             <td>{{item.displayName}}</td>
             
         </tr>
     </table>
 
 
-
-	<form class="tab-pane active form-horizontal col-md-offset-2" novalidate name="itemForm" class="simple-form"  ng-submit="itemForm.$valid && addItem()">
+	<form ng-hide="order.finalized || !isAuthenticated()" class="tab-pane active form-horizontal col-md-offset-2" novalidate name="itemForm" class="simple-form"  ng-submit="itemForm.$valid && addItem()">
 	    <div class="form-group" ng-class="{'has-error' : submitted && itemForm.name.$invalid}">
     		<label class="control-label col-md-3">Name <span class="required">* </span> </label>
     			<div class="col-md-4">
@@ -39,4 +54,4 @@
         <button type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button>
     	</div>
   	</form>
-</div>
+

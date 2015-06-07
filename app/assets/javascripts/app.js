@@ -16,7 +16,8 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
       
       'index':   { method: 'GET', isArray: true },
       'show':    { method: 'GET', isArray: false },
-      'create':  { method: 'POST'}
+      'create':  { method: 'POST'},
+      'update':  { method: 'PUT'}
       }
     );
   })
@@ -65,33 +66,11 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
         templateUrl: 'templates/showorder.html',
         controller: 'ShowOrderCtrl'
       })
-      .state('new', {
-        url: '/new',
-        templateUrl: 'templates/new.html',
-        controller: 'CreateCtrl'
-      })
+      
       .state('logout', {
         url: '/logout',
         template: null,
         controller: 'LogoutCtrl'
-      })
-      .state('profile', {
-        url: '/profile',
-        templateUrl: 'partials/profile.html',
-        controller: 'ProfileCtrl',
-        resolve: {
-          authenticated: function($q, $location, $auth) {
-            var deferred = $q.defer();
-
-            if (!$auth.isAuthenticated()) {
-              $location.path('/');
-            } else {
-              deferred.resolve();
-            }
-
-            return deferred.promise;
-          }
-        }
       });
 
     $urlRouterProvider.otherwise('/');
