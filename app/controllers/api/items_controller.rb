@@ -1,13 +1,18 @@
-class Api::ItemsController < ApplicationController
+	class Api::ItemsController < ApplicationController
+	before_filter :set_current_user
+	
 	def create
 		@item = Item.new(item_params)
-		if Order.find(@item.order_id).finalized?
-  		if @item.save
-  			render json: @item
-  		else
-  			render json: @item.errors, status: :unprocessable_entity
-  		end
-  	end
+		@item.user = current_user	
+		unless Order.find(@item.order_id).finalized?
+	  		if @item.save
+	  			render json: @item
+	  		else
+	  			render json: @item.errors, status: :unprocessable_entity
+	  		end
+	  	else
+	  		render status: 403
+	  	end
 	end
 
 private

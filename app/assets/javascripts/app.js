@@ -37,23 +37,29 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
     $('meta[name=csrf-token]').attr('content');
   })
 
+
+
+
   .config(function($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'templates/home.html',
-        controller: 'HomeCtrl'
+      .state('home', {  
+            url: '/',
+            templateUrl: 'templates/home.html',
+            controller: 'HomeCtrl' 
       })
+
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
         controller: 'LoginCtrl'
       })
+
       .state('newOrder', {
         url: '/neworder',
         templateUrl: 'templates/neworder.html',
         controller: 'NewOrderCtrl'
       })
+
       .state('showOrder', {
         url: '/showorder/:orderId',
         templateUrl: 'templates/showorder.html',

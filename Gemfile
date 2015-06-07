@@ -39,6 +39,7 @@ gem 'active_model_serializers', '~> 0.9.3'
 gem 'httpclient', '~> 2.6.0.1'
 gem 'bcrypt', '~> 3.1.10'
 gem 'jwt', '~> 1.5.0'
+gem 'jquery-turbolinks'
 
 
 group :development, :test do

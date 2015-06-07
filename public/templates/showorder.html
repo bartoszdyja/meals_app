@@ -1,11 +1,23 @@
-<h1>Show order</h1>
+<h1>Order No: {{order.id}}</h1>
 
-{{or.name}}
-{{or.created_at}}
-<p>asdfas   {{or.finalized}}</p>
+<table class="table">
+    <caption>Items in this order</caption>
+        <tr>
+            <th>Name</th>
+            <th>Added by</th>
+            
+                
+        </tr>
+        <tr ng-repeat="item in order.items">
+            <td>{{item.name}}</td>
+            <td>{{item.displayName}}</td>
+            
+        </tr>
+    </table>
 
-<div>
-	<form class="tab-pane active form-horizontal col-md-offset-2" novalidate name="itemForm" class="simple-form"  ng-submit="addItem()">
+
+
+	<form class="tab-pane active form-horizontal col-md-offset-2" novalidate name="itemForm" class="simple-form"  ng-submit="itemForm.$valid && addItem()">
 	    <div class="form-group" ng-class="{'has-error' : submitted && itemForm.name.$invalid}">
     		<label class="control-label col-md-3">Name <span class="required">* </span> </label>
     			<div class="col-md-4">

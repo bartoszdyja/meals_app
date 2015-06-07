@@ -1,34 +1,21 @@
-<div ng-if="!isAuthenticated()" class="col-md-8 col-md-offset-2">
-Please log in
-</div>
-<div ng-if="isAuthenticated()" class="col-md-8 col-md-offset-2">
-  
-
-
-<button class="btn btn-primary center-block" 	ng-click="addOrder()" >
-  Add new order
-</button>
-
-
-  <h1>List orders</h1>
-
+<button class="btn btn-primary center-block" ng-click="addOrder()" ng-disabled="!isAuthenticated()">Add new order</button>
 
 <table class="table">
-	<tr>
-		<th>Id</th>
-		<th>Finalized</th>
-		<th>Ordered</th>
-		<th>Delivered</th>
-		<th>Finalize</th>
-			
+	<caption>Orders</caption>
+		<tr>
+			<th>Id</th>
+			<th>Finalized</th>
+			<th>Ordered</th>
+			<th>Delivered</th>
+			<th>Finalize</th>
+				
 		</tr>
-        <tr ng-repeat="order in orders">
-            <td>{{order.id}}</td>
-           	<td>{{order.finalized}}</td>
-           	<td>{{order.ordered}}</td>
-           	<td>{{order.delivered}}</td>
-           	<td><button id="editBtn" type="button" class="btn btn-primary" ng-click="editClub(row.entity)" >Finalize order</button></td>
-        </tr>
-</table>
-</div>
+	    <tr ng-repeat="order in orders">
+	        <td>{{order.id}}</td>
+	       	<td>{{order.finalized}}</td>
+	       	<td>{{order.ordered}}</td>
+	       	<td>{{order.delivered}}</td>
+	       	<td><a type="button" class="btn btn-primary" ng-href="/showorder/{{order.id}}" >Show order</a></td>
+	    </tr>
+	</table>
 	

@@ -3,6 +3,4 @@ angular.module('orderApp')
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
-
-    $scope.user = User.show();
   });

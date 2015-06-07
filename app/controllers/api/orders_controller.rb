@@ -1,6 +1,6 @@
   class Api::OrdersController < ApplicationController
 
-  before_filter :set_current_user, :authenticate_user!
+  before_filter :set_current_user, :authenticate_user!, except: [:index, :show]
   
   def create
   	@order = Order.new
