@@ -6,11 +6,9 @@ Rails.application.routes.draw do
 
   root to: "application#index"
 
-  get 'profile', to: 'users#show'
-  get 'user', to: 'application#set_current_user'
   post 'auth/facebook', to: 'auth#facebook'                                                                                                                                                                                                                                                                                                                                                                                                                                       
-  get "angular_app" => 'application#index', :as => :angular 
-  get "*path" => "application#index"
+  #get "angular_app" => 'application#index', :as => :angular 
+  get "*path", to: "application#index"
 
   # The priority is based upon order of creation: first created -> highest priority.                                                                                                      
   # See how all your routes lay out with "rake routes".

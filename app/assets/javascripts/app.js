@@ -82,5 +82,10 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
       clientId: '792920127488625'
     });
 
-  });
+  })
 
+  .run(['$rootScope', '$state', '$stateParams',
+  function ($rootScope, $state, $stateParams) {
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+}]);
