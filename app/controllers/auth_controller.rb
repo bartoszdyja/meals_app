@@ -1,7 +1,5 @@
 class AuthController < ApplicationController
 
-  
-
   def facebook
     @oauth = OAuth.const_get(action_name.capitalize).new params
     

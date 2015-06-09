@@ -8,8 +8,9 @@
 <span ng-hide="order.delivered" class="label label-danger">Not delivered</span>
 </div>
 
-<div class="col-md-4" ng-hide="!isAuthenticated()">
-<button ng-hide="order.finalized" type="submit" class="btn btn-primary btn-lg" ng-click="finalizeOrder()">Finalize</button>
+
+<div class="col-md-4" ng-hide="!isAuthenticated() ">
+<button ng-hide="order.finalized" type="submit" class="btn btn-primary btn-lg" ng-disabled="!order.items.length" ng-click="finalizeOrder()">Finalize</button>
 <button ng-hide="order.ordered || !order.finalized" type="submit" class="btn btn-primary btn-lg" ng-click="orderOrder()">Order</button>
 <button ng-hide="order.delivered || !order.finalized || !order.ordered" type="submit" class="btn btn-primary btn-lg" ng-click="deliverOrder()">Deliver</button>
 </div>

@@ -1,6 +1,7 @@
-  class Api::OrdersController < ApplicationController
+class Api::OrdersController < ApplicationController
 
-  before_filter :set_current_user, :authenticate_user!, except: [:index, :show]
+  before_filter  :set_current_user, :authenticate_user!, except: [:index, :show]
+  before_action  :set_order, only: [:show, :update]
   
   def create
   	@order = Order.new
@@ -18,17 +19,29 @@
   end
 
   def show
-    @order = Order.find(params[:id])
+    
     render json: @order
   end
 
   def update
-    @order = Order.find(params[:id])
-    @order.update(order_params)
-    render json: @order
+    
+    if !@order.items.blank?
+      if @order.update(order_params)
+        render json: @order
+      else
+        render json: @order.errors, status: :unprocessable_entity
+      end
+    else
+      render json: @order.errors, status: :unprocessable_entity
+    end
   end
 
   private
+
+  def set_order
+    @order=Order.find(params[:id])
+  end
+
   def order_params
   	params.require(:order).permit(:id, :finalized, :ordered, :delivered)
   end

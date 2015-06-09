@@ -27,7 +27,5 @@ class ApplicationController < ActionController::Base
     payload = Token.new(token)
 
     @current_user = User.find(payload.user_id) if payload.valid?
-
-    
   end
 end

@@ -1,4 +1,4 @@
-	class Api::ItemsController < ApplicationController
+class Api::ItemsController < ApplicationController
 	before_filter :set_current_user, :authenticate_user!
 	
 	def create
@@ -16,9 +16,8 @@
 	  	end
 	end
 
-private
-	def item_params
-		params.require(:item).permit(:name, :price, :order_id)
-	end
-
+	private
+		def item_params
+			params.require(:item).permit(:name, :price, :order_id)
+		end
 end
