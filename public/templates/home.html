@@ -4,7 +4,6 @@
 <h1 ng-show="checkboxModel.value==='false'">Active orders</h1>
 <p><input type="checkbox" ng-model="checkboxModel.value" ng-true-value="'false'" ng-false-value="''"> - show only active orders.</p>
 
-
 <table class="table table-striped">
 	<caption>Orders</caption>
 		<tr>
@@ -12,8 +11,7 @@
 			<th>Finalized</th>
 			<th>Ordered</th>
 			<th>Delivered</th>
-			<th>Finalize</th>
-				
+			<th>Finalize</th>				
 		</tr>
 	    <tr ng-repeat="order in orders | filter:{ finalized: checkboxModel.value }">
 	        <td>{{order.id}}</td>
@@ -22,5 +20,4 @@
 	       	<td>{{order.delivered}}</td>
 	       	<td><a type="button" class="btn btn-primary" ng-href="/showorder/{{order.id}}" >Show order</a></td>
 	    </tr>
-	</table>	
-	
+	</table>

@@ -16,21 +16,18 @@
 </div>
 
 <table class="table">
-    <caption>Items in this order</caption>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Added by</th>
-            
-                
-        </tr>
-        <tr ng-repeat="item in order.items">
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.displayName}}</td>
-            
-        </tr>
-    </table>
+  <caption>Items in this order</caption>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Added by</th>
+    </tr>
+    <tr ng-repeat="item in order.items">
+      <td>{{item.name}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.displayName}}</td>
+    </tr>
+  </table>
 
 
 	<form ng-hide="order.finalized || !isAuthenticated()" class="tab-pane active form-horizontal col-md-offset-2" novalidate name="itemForm" class="simple-form"  ng-submit="itemForm.$valid && addItem()">
@@ -41,9 +38,7 @@
     			</div>
     		<p ng-show=" submitted && itemForm.name.$invalid" class="help-block">First name is required.</p>
 		</div>
-	
-
-		<div class="form-group" ng-class="{'has-error' : submitted && itemForm.price.$invalid}">
+  	<div class="form-group" ng-class="{'has-error' : submitted && itemForm.price.$invalid}">
     		<label class="control-label col-md-3">Price <span class="required">* </span> </label>
     			<div class="col-md-4">
         			<input type="number" name="price" class="form-control" ng-model="newItem.price" required placeholder="Price"/>
@@ -55,4 +50,3 @@
         <button type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button>
     	</div>
   	</form>
-

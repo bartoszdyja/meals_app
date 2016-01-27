@@ -1,17 +1,12 @@
-<h1>Add new order</h1>	
-
-
+<h1>Add new order</h1>
 <button class="btn btn-primary" 	ng-click="addOrder()" >
   Add new order
 </button>
-
 <table class="table">
-	<tr>
-		<th>Id</th>
-		
-		</tr>
-        <tr ng-repeat="order in orders">
-            <td>{{order.id}}</td>
-            
-        </tr>
+  <tr>
+    <th>Id</th>
+  </tr>
+  <tr ng-repeat="order in orders">
+    <td>{{order.id}}</td>
+  </tr>
 </table>

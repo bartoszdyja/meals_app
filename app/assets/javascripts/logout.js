@@ -3,6 +3,5 @@ angular.module('orderApp')
     if (!$auth.isAuthenticated()) {
         return;
     }
-    $auth.logout()
-      
+    $auth.logout()      
   });

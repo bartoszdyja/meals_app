@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe Api::OrdersController, :type => :controller do
-
-let(:user) { FactoryGirl.create :user } # factory girl
-let(:order) { FactoryGirl.create :order }  
+  let(:user) { FactoryGirl.create :user } # factory girl
+  let(:order) { FactoryGirl.create :order }
   context 'user is not logged in' do
     before do
       controller.stub(:current_user).and_return(nil)
@@ -39,7 +38,7 @@ let(:order) { FactoryGirl.create :order }
   end
 
   context 'GET #index' do
-    it "is successful" do
+    it 'is successful' do
       get :index
       response.should be_success
     end
@@ -51,18 +50,17 @@ let(:order) { FactoryGirl.create :order }
     end
 
     it 'retrieves a specific message' do
-    order = FactoryGirl.create(:order)    
-    get :show, id: order.id
+      order = FactoryGirl.create(:order)
+      get :show, id: order.id
+      json = JSON.parse(response.body)
+      # test for the 200 status-code
+      expect(response).to be_success
 
-    json = JSON.parse(response.body)
-    # test for the 200 status-code
-    expect(response).to be_success
+      # check that the message attributes are the same.
+      expect(json['finalized']).to eq(false)
 
-    # check that the message attributes are the same.
-    expect(json['finalized']).to eq(false) 
-
-    # ensure that private attributes aren't serialized
-    expect(json['private_attr']).to eq(nil)
+      # ensure that private attributes aren't serialized
+      expect(json['private_attr']).to eq(nil)
   	end
 
     it 'check if correct data is returned' do
@@ -70,7 +68,7 @@ let(:order) { FactoryGirl.create :order }
 
     get 'index'
 
-    expect(response).to be_success    
+    expect(response).to be_success
     json = JSON.parse(response.body)
     expect(json.last.length).to eq(5)
   end

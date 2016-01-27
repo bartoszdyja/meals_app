@@ -3,7 +3,6 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
   .factory("User", function($resource) {
     return $resource("/profile", {},
       {
-      
       'show':    { method: 'GET', isArray: false },
       'create':  { method: 'POST'}
       }
@@ -13,7 +12,6 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
   .factory("Order", function($resource) {
     return $resource("/api/orders/:id", { id: "@id" },
       {
-      
       'index':   { method: 'GET', isArray: true },
       'show':    { method: 'GET', isArray: false },
       'create':  { method: 'POST'},
@@ -25,7 +23,6 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
   .factory("Item", function($resource) {
     return $resource("/api/items/:id", { id: "@id" },
       {
-      
       'index':   { method: 'GET', isArray: true },
       'show':    { method: 'GET', isArray: false },
       'create':  { method: 'POST'}
@@ -38,35 +35,28 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
     $('meta[name=csrf-token]').attr('content');
   })
 
-
-
-
   .config(function($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
     $stateProvider
-      .state('home', {  
+      .state('home', {
             url: '/',
             templateUrl: 'templates/home.html',
-            controller: 'HomeCtrl' 
+            controller: 'HomeCtrl'
       })
-
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
         controller: 'LoginCtrl'
       })
-
       .state('newOrder', {
         url: '/neworder',
         templateUrl: 'templates/neworder.html',
         controller: 'NewOrderCtrl'
       })
-
       .state('showOrder', {
         url: '/showorder/:orderId',
         templateUrl: 'templates/showorder.html',
         controller: 'ShowOrderCtrl'
       })
-      
       .state('logout', {
         url: '/logout',
         template: null,
@@ -77,11 +67,9 @@ angular.module('orderApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngS
     $locationProvider.html5Mode({
       enabled: true
     });
-
     $authProvider.facebook({
       clientId: '792920127488625'
     });
-
   })
 
   .run(['$rootScope', '$state', '$stateParams',

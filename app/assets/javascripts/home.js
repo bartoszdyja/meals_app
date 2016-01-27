@@ -4,21 +4,14 @@ angular.module('orderApp')
     $scope.checkboxModel = {
        value : ''
      };
-
     $scope.addOrder = function () {
     Order.create( function(order){
         $location.path('/showorder/'+order.id);
-	}, function(error){
+    }, function(error){
       console.log(error)
-  });
- }
-
-    
+    });
+   }
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     }
-
-    
-    
-    
-  });
+   });
